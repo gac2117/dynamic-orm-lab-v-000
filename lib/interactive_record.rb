@@ -59,7 +59,7 @@ class InteractiveRecord
   end
 
   def self.find_by(attr)
-    key = attr.keys.to_s
+    key = attr.keys.first.to_s
     binding.pry
     sql = <<-SQL
       SELECT * FROM #{self.table_name}
