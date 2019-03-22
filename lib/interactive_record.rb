@@ -58,6 +58,7 @@ class InteractiveRecord
   end
 
   def self.find_by(attr)
+    key = attr.keys.to_s 
     sql = <<-SQL
       SELECT * FROM #{self.table_name}
       WHERE #{attr.keys.to_s} = #{attr.values}
