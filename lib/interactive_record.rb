@@ -60,7 +60,6 @@ class InteractiveRecord
 
   def self.find_by(attr)
     key = attr.keys.first.to_s
-    binding.pry
     sql = <<-SQL
       SELECT * FROM #{self.table_name}
       WHERE #{key} = #{attr.values.first}
