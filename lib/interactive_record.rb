@@ -58,13 +58,10 @@ class InteractiveRecord
   end
 
   def self.find_by(attr)
-    attr.each do |property, value|
-      attribute_name = property.to_s
-      sql = <<-SQL
-        SELECT * FROM #{self.table_name}
-        WHERE attribute_name = '#{value}'
-        SQL
-      DB[:conn].execute(sql)
-    end
+    sql = <<-SQL
+      SELECT * FROM #{self.table_name}
+      WHERE #{attr.keys.first} = #{attr.values.first}
+      SQL
+    DB[:conn].execute(sql)
   end
 end
