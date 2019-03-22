@@ -61,9 +61,9 @@ class InteractiveRecord
     attr.each do |property, value|
       sql = <<-SQL
         SELECT * FROM #{self.table_name}
-        WHERE ? = ?
+        WHERE #{property} = #{value}
         SQL
-      DB[:conn].execute(sql, property, value)
+      DB[:conn].execute(sql)
     end
   end
 end
