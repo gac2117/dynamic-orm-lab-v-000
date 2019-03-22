@@ -63,7 +63,7 @@ class InteractiveRecord
     binding.pry
     sql = <<-SQL
       SELECT * FROM #{self.table_name}
-      WHERE #{key} = #{attr.values}
+      WHERE #{key} = #{attr.values.first}
       SQL
     DB[:conn].execute(sql)
   end
