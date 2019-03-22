@@ -63,7 +63,8 @@ class InteractiveRecord
         SELECT * FROM #{self.table_name}
         WHERE #{property} = '#{value}'
         SQL
-    end
       DB[:conn].execute(sql)
+    end
+      
   end
 end
