@@ -59,7 +59,7 @@ class InteractiveRecord
 
   def self.find_by(attr)
     attr.each do |property, value|
-      attribute_name = property.to_s 
+      attribute_name = property.to_s
       sql = <<-SQL
         SELECT * FROM #{self.table_name}
         WHERE #{attribute_name} = '#{value}'
