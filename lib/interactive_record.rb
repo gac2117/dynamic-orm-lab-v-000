@@ -60,7 +60,7 @@ class InteractiveRecord
   def self.find_by(attr)
     sql = <<-SQL
       SELECT * FROM #{self.table_name}
-      WHERE #{attr.keys.first} = #{attr.values.first}
+      WHERE #{attr.keys.to_s} = #{attr.values}
       SQL
     DB[:conn].execute(sql)
   end
